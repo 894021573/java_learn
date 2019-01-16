@@ -8,6 +8,7 @@ public class TestString
     public static void main(String[] args)
     {
         // 字符串API
+        System.out.println(123);
     }
 
     public static void test4()
