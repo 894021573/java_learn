@@ -49,7 +49,6 @@ public class TestDbUtils
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     public void selectArrayList()
