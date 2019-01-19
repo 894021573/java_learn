@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class QuickSort
 {
     // 快速排序
-    public static void main(String[] args)
-    {
+    public static void main(String[] args)    {
         int[] arr = new int[]{3, 9, 2, 6, 5, 1, 8, 6, 5, 0};
         run(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
