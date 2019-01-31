@@ -15,15 +15,15 @@ public class RandomUtil
     public static String getOrderNo()
     {
         //格式化当前时间
-        SimpleDateFormat sfDate = new SimpleDateFormat("yyyMMddHHmmssSSS");
+        SimpleDateFormat sfDate = new SimpleDateFormat("yyMMddHHmmssSSS");
         String strDate = sfDate.format(new Date());
-        //得到17位时间如：20170411094039080
-        System.out.println("时间17位：" + strDate);
+//        //得到17位时间如：20170411094039080
+//        System.out.println("时间17位：" + strDate);
         //为了防止高并发重复,再获取3个随机数
-        String random = getRandom620(4);
+        String random = getRandom620(5);
 
         //最后得到20位订单编号。
-        return random;
+        return strDate + random;
     }
 
     /**

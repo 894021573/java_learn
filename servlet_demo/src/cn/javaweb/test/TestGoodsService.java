@@ -1,11 +1,13 @@
 package cn.javaweb.test;
 
 import cn.javaweb.service.GoodsService;
+import cn.javaweb.service.bean.CartItem;
 import cn.javaweb.service.impl.GoodsServiceImpl;
 import cn.javaweb.utils.JsonUtil;
 
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
@@ -45,5 +47,10 @@ public class TestGoodsService
         assertEquals((int) map.get("code"), 0);
     }
 
-    public void 
+    @Test
+    public void placeOrder()
+    {
+        List<CartItem> cartItems = null;
+        Map<String, Object> map = goodsService.placeOrder(cartItems);
+    }
 }

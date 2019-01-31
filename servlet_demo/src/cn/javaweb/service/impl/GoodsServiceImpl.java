@@ -118,8 +118,10 @@ public class GoodsServiceImpl implements GoodsService
     {
         // 生成订单号
         String orderNo = RandomUtil.getOrderNo();
+        System.out.println(orderNo);
 
         // 订单表
+
 
         // 订单详情表
 

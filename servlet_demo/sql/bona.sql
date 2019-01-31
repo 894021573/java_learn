@@ -104,7 +104,7 @@ CREATE TABLE `order` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `shop_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '店铺id',
-  `order_no` varchar(255) NOT NULL,
+  `order_no` bigint(20) NOT NULL,
   `created_at` int(10) unsigned NOT NULL DEFAULT '0',
   `updated_at` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
