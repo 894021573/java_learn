@@ -11,10 +11,10 @@ public class GoodsDaoImpl implements GoodsDao
     @Override
     public List<Goods> listGoods()
     {
-        String sql = "SELECT id,category_id,name,price,quantity,color,size FROM goods LIMIT 10";
-        List<Goods> goods = (List<Goods>) (new JDBCUtil()).queryList(sql, Goods.class);
+        String sql = "SELECT id,category_id,name,price,quantity FROM goods LIMIT 10";
+        List<Goods> listGoods = (List<Goods>) JDBCUtil.queryList(sql, Goods.class);
 
-        return goods;
+        return listGoods;
     }
 
     @Override
@@ -32,8 +32,8 @@ public class GoodsDaoImpl implements GoodsDao
     @Override
     public Goods getGoodsById(int goodsId)
     {
-        String sql = "SELECT id,name,price,quantity,color,size FROM goods WHERE id = ?";
-        Goods goods = (new JDBCUtil()).queryOne(sql, Goods.class, goodsId);
+        String sql = "SELECT id,shop_id,name,price,quantity FROM goods WHERE id = ?";
+        Goods goods = JDBCUtil.queryOne(sql, Goods.class, goodsId);
 
         return goods;
     }

@@ -14,6 +14,7 @@ public class BaseServlet extends HttpServlet
 {
     public void service(HttpServletRequest req, HttpServletResponse resp) throws IOException
     {
+        System.out.println("============================");
         String methodName = req.getParameter("method");
 
         // POST 提交，除了method参数外，其他参数不能放在url中
@@ -36,8 +37,8 @@ public class BaseServlet extends HttpServlet
             method.invoke(this, req, resp);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
-            System.out.println("class_name" + this.getClass().getName());
-            System.out.println("method_name" + method.getName());
+//            System.out.println("class_name" + this.getClass().getName());
+//            System.out.println("method_name" + method.getName());
         }
     }
 }

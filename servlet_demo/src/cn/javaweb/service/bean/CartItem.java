@@ -1,14 +1,19 @@
 package cn.javaweb.service.bean;
 
+import cn.javaweb.bean.GoodsAttribute;
 import com.google.gson.annotations.Expose;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class CartItem implements Serializable
 {
     @Expose
     private int goodsId;
+    @Expose
+    private int shopId;
+
     @Expose
     private String goodsName;
     @Expose
@@ -18,9 +23,7 @@ public class CartItem implements Serializable
     @Expose
     private int buyNum;
     @Expose
-    private String color;
-    @Expose
-    private String size;
+    private List<GoodsAttribute> listGoodsAttribute = null;
 
     public int getGoodsId()
     {
@@ -30,6 +33,16 @@ public class CartItem implements Serializable
     public void setGoodsId(int goodsId)
     {
         this.goodsId = goodsId;
+    }
+
+    public int getShopId()
+    {
+        return shopId;
+    }
+
+    public void setShopId(int shopId)
+    {
+        this.shopId = shopId;
     }
 
     public String getGoodsName()
@@ -72,23 +85,13 @@ public class CartItem implements Serializable
         this.buyNum = buyNum;
     }
 
-    public String getColor()
+    public List<GoodsAttribute> getListGoodsAttribute()
     {
-        return color;
+        return listGoodsAttribute;
     }
 
-    public void setColor(String color)
+    public void setListGoodsAttribute(List<GoodsAttribute> listGoodsAttribute)
     {
-        this.color = color;
-    }
-
-    public String getSize()
-    {
-        return size;
-    }
-
-    public void setSize(String size)
-    {
-        this.size = size;
+        this.listGoodsAttribute = listGoodsAttribute;
     }
 }

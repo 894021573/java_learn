@@ -24,7 +24,7 @@ public class AuthFilter implements Filter
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException
     {
-        System.out.println("before filter");
+        System.out.println("before filter222");
 
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         String currentURL = httpRequest.getServletPath();

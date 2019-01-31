@@ -14,12 +14,6 @@ import java.util.Map;
 
 public class UserServiceImpl implements UserService
 {
-    /**
-     * 登录
-     * @param name
-     * @param password
-     * @return
-     */
     @Override
     public Map<String, Object> login(String name, String password)
     {
@@ -39,11 +33,6 @@ public class UserServiceImpl implements UserService
         }
     }
 
-    /**
-     * 注册
-     * @param user
-     * @return
-     */
     @Override
     public Map<String, Object> register(User user)
     {

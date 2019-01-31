@@ -3,6 +3,7 @@ package cn.javaweb.bean;
 import com.google.gson.annotations.Expose;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Goods
 {
@@ -18,15 +19,15 @@ public class Goods
     private BigDecimal price;
     @Expose
     private int quantity;
-    @Expose
-    private String color;
-    @Expose
-    private String size;
 
     private int createdAt;
     private int updatedAt;
 
+    //===其他属性===//
+    @Expose
     private Category category = new Category();
+    @Expose
+    private List<GoodsAttribute> listGoodsAttribute = null;
 
     public int getId()
     {
@@ -88,31 +89,6 @@ public class Goods
         this.quantity = quantity;
     }
 
-    public String getColor()
-    {
-        return color;
-    }
-
-    public void setColor(String color)
-    {
-        this.color = color;
-    }
-
-    public String getSize()
-    {
-        return size;
-    }
-
-    public void setSize(String size)
-    {
-        this.size = size;
-    }
-
-    public Category getCategory()
-    {
-        return category;
-    }
-
     public int getCreatedAt()
     {
         return createdAt;
@@ -131,5 +107,25 @@ public class Goods
     public void setUpdatedAt(int updatedAt)
     {
         this.updatedAt = updatedAt;
+    }
+
+    public Category getCategory()
+    {
+        return category;
+    }
+
+    public void setCategory(Category category)
+    {
+        this.category = category;
+    }
+
+    public List<GoodsAttribute> getListGoodsAttribute()
+    {
+        return listGoodsAttribute;
+    }
+
+    public void setListGoodsAttribute(List<GoodsAttribute> listGoodsAttribute)
+    {
+        this.listGoodsAttribute = listGoodsAttribute;
     }
 }

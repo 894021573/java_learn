@@ -13,7 +13,7 @@ public class Cart implements Serializable
     @Expose
     private int userId;
     @Expose
-    private List<CartItem> cartItems = new ArrayList<>();
+    private List<CartItem> listCartItem = new ArrayList<>();
 
     public int getUserId()
     {
@@ -27,37 +27,37 @@ public class Cart implements Serializable
 
     public List<CartItem> getCartItems()
     {
-        return cartItems;
+        return listCartItem;
     }
 
     public void saveItem(CartItem cartItem)
     {
         int findIndex = 0;
         CartItem findCartItem = null;
-        for (int i = 0; i < cartItems.size(); i++) {
-            if (cartItems.get(i).getGoodsId() == cartItem.getGoodsId()) {
+        for (int i = 0; i < listCartItem.size(); i++) {
+            if (listCartItem.get(i).getGoodsId() == cartItem.getGoodsId()) {
                 findIndex = i;
-                findCartItem = cartItems.get(i);
+                findCartItem = listCartItem.get(i);
                 break;
             }
         }
 
         if (findCartItem == null) {
             cartItem.setBuyNum(1);
-            cartItems.add(cartItem);
+            listCartItem.add(cartItem);
         } else {
             cartItem.setBuyNum(findCartItem.getBuyNum() + 1);
-            cartItems.set(findIndex, cartItem);
+            listCartItem.set(findIndex, cartItem);
         }
     }
 
     public void removeItem(int goodsId)
     {
-        cartItems.remove(goodsId);
+        listCartItem.remove(goodsId);
     }
 
     public void clear()
     {
-        cartItems.clear();
+        listCartItem.clear();
     }
 }

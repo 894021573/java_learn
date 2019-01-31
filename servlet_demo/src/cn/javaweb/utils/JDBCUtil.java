@@ -13,9 +13,7 @@ import java.util.Map;
 
 public class JDBCUtil
 {
-
-
-    public JDBCUtil()
+    private JDBCUtil()
     {
     }
 
@@ -43,7 +41,7 @@ public class JDBCUtil
         return null;
     }
 
-    public <T> T queryOne(String sql, Class<T> type, Object... params)
+    public static <T> T queryOne(String sql, Class<T> type, Object... params)
     {
         Connection connection = JDBCUtil.getConnection();
         RowProcessor processor = new BasicRowProcessor(new GenerousBeanProcessor());
@@ -55,11 +53,13 @@ public class JDBCUtil
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
         }
         return (T) object;
     }
 
-    public <T> T queryList(String sql, Class<T> type)
+    public static <T> T queryList(String sql, Class<T> type)
     {
         Connection connection = JDBCUtil.getConnection();
         RowProcessor processor = new BasicRowProcessor(new GenerousBeanProcessor());
@@ -70,11 +70,13 @@ public class JDBCUtil
             objects = queryRunner.query(connection, sql, new BeanListHandler<>(type, processor));
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
         }
         return (T) objects;
     }
 
-    public <T> T queryList(String sql, Class<T> type, Object... params)
+    public static <T> T queryList(String sql, Class<T> type, Object... params)
     {
         Connection connection = JDBCUtil.getConnection();
         RowProcessor processor = new BasicRowProcessor(new GenerousBeanProcessor());
@@ -85,12 +87,14 @@ public class JDBCUtil
             objects = queryRunner.query(connection, sql, new BeanListHandler<>(type, processor), params);
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
         }
         return (T) objects;
     }
 
     @SuppressWarnings("deprecation")
-    public <T> T queryList(String sql, Object[] params, Class<T> type)
+    public static <T> T queryList(String sql, Object[] params, Class<T> type)
     {
         Connection connection = JDBCUtil.getConnection();
         RowProcessor processor = new BasicRowProcessor(new GenerousBeanProcessor());
@@ -101,11 +105,13 @@ public class JDBCUtil
             objects = queryRunner.query(connection, sql, params, new BeanListHandler<>(type, processor));
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
         }
         return (T) objects;
     }
 
-    public <T> T queryMapList(String sql)
+    public static <T> T queryMapList(String sql)
     {
         Connection connection = JDBCUtil.getConnection();
         RowProcessor processor = new BasicRowProcessor(new GenerousBeanProcessor());
@@ -116,11 +122,13 @@ public class JDBCUtil
             objects = queryRunner.query(connection, sql, new MapListHandler());
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
         }
         return (T) objects;
     }
 
-    public int update(String sql, Object... params)
+    public static int update(String sql, Object... params)
     {
         Connection connection = JDBCUtil.getConnection();
         QueryRunner queryRunner = new QueryRunner();
@@ -129,14 +137,20 @@ public class JDBCUtil
             affectNum = queryRunner.update(connection, sql, params);
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
         }
         return affectNum;
     }
 
-    public static void close(Connection connection) throws SQLException
+    public static void close(Connection connection)
     {
         if (connection != null) {
-            connection.close();
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

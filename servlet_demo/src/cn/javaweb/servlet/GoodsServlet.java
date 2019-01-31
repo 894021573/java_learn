@@ -20,7 +20,7 @@ public class GoodsServlet extends BaseServlet
 
         String token = req.getParameter("token");
         GoodsService goodsService = new GoodsServiceImpl();
-        Map<String, Object> map = goodsService.listGoods(userId, token);
+        Map<String, Object> map = goodsService.listGoods();
         ResponseUtil.responseJson(resp, map);
     }
 
@@ -47,6 +47,18 @@ public class GoodsServlet extends BaseServlet
         // 获取购物车
         GoodsService goodsService = new GoodsServiceImpl();
         Map<String, Object> map = goodsService.listCartItems(userId);
+
+        ResponseUtil.responseJson(resp, map);
+    }
+
+    public void getGoodsDetail(HttpServletRequest req, HttpServletResponse resp)
+    {
+        // 获取参数
+        int goodsId = Integer.parseInt(req.getParameter("goods_id"));
+
+        // 获取商品详情
+        GoodsService goodsService = new GoodsServiceImpl();
+        Map<String, Object> map = goodsService.getGoodsDetail(goodsId);
 
         ResponseUtil.responseJson(resp, map);
     }

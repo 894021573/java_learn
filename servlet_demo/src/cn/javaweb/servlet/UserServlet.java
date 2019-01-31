@@ -46,9 +46,4 @@ public class UserServlet extends BaseServlet
 
         ResponseUtil.responseJson(resp, map);
     }
-
-    public void updateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
-        req.getRequestDispatcher("/web_content/update.jsp").forward(req, resp);
-    }
 }

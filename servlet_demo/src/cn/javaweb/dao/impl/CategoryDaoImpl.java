@@ -18,7 +18,7 @@ public class CategoryDaoImpl implements CategoryDao
 
         String ss = stringBuilder.substring(0, stringBuilder.length() - 1);
         String sql = "SELECT id,name FROM category WHERE id IN (" + ss + ")";
-        List<Category> categories = (List<Category>) (new JDBCUtil()).queryList(sql, params, Category.class);
+        List<Category> categories = (List<Category>) JDBCUtil.queryList(sql, params, Category.class);
         return categories;
     }
 }

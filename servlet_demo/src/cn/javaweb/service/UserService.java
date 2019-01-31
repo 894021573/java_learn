@@ -8,6 +8,7 @@ public interface UserService
 {
     /**
      * 登录
+     *
      * @param name
      * @param password
      * @return
@@ -16,6 +17,7 @@ public interface UserService
 
     /**
      * 注册
+     *
      * @param user
      * @return
      */
