@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-01-31 16:49:44
+Date: 2019-02-12 18:19:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -103,37 +103,44 @@ DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
-  `shop_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '店铺id',
-  `order_no` bigint(20) NOT NULL,
+  `order_number` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '1-未支付；2-已支付',
   `created_at` int(10) unsigned NOT NULL DEFAULT '0',
   `updated_at` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
+INSERT INTO `order` VALUES ('22', '6', '1902121501218551682', '1', '1549954881', '0');
+INSERT INTO `order` VALUES ('23', '6', '1902121633287803290', '1', '1549960408', '0');
 
 -- ----------------------------
 -- Table structure for order_goods
 -- ----------------------------
 DROP TABLE IF EXISTS `order_goods`;
 CREATE TABLE `order_goods` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `order_id` int(10) unsigned NOT NULL,
   `goods_id` int(10) NOT NULL,
+  `shop_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '店铺id',
   `price` decimal(10,0) unsigned NOT NULL DEFAULT '0',
-  `buy_num` int(10) unsigned NOT NULL DEFAULT '0',
-  `attribute_json` tinytext NOT NULL,
+  `buy_number` int(10) unsigned NOT NULL DEFAULT '0',
+  `attribute_json` text NOT NULL,
   `created_at` int(10) unsigned NOT NULL DEFAULT '0',
   `updated_at` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of order_goods
 -- ----------------------------
+INSERT INTO `order_goods` VALUES ('10', '6', '22', '1', '0', '100', '1', '[{\"goods_id\":1,\"attribute_name_id\":1,\"attribute_value\":\"游戏型\",\"goods_attribute_name\":{\"name\":\"型号\"}},{\"goods_id\":1,\"attribute_name_id\":2,\"attribute_value\":\"黑色\",\"goods_attribute_name\":{\"name\":\"颜色\"}}]', '1549954882', '0');
+INSERT INTO `order_goods` VALUES ('11', '6', '22', '2', '0', '200', '1', '[{\"goods_id\":2,\"attribute_name_id\":3,\"attribute_value\":\"L\",\"goods_attribute_name\":{\"name\":\"尺寸\"}},{\"goods_id\":2,\"attribute_name_id\":2,\"attribute_value\":\"白色\",\"goods_attribute_name\":{\"name\":\"颜色\"}}]', '1549954882', '0');
+INSERT INTO `order_goods` VALUES ('12', '6', '23', '1', '0', '100', '1', '[{\"goods_id\":1,\"attribute_name_id\":1,\"attribute_value\":\"游戏型\",\"goods_attribute_name\":{\"name\":\"型号\"}},{\"goods_id\":1,\"attribute_name_id\":2,\"attribute_value\":\"黑色\",\"goods_attribute_name\":{\"name\":\"颜色\"}}]', '1549960409', '0');
+INSERT INTO `order_goods` VALUES ('13', '6', '23', '2', '0', '200', '1', '[{\"goods_id\":2,\"attribute_name_id\":3,\"attribute_value\":\"L\",\"goods_attribute_name\":{\"name\":\"尺寸\"}},{\"goods_id\":2,\"attribute_name_id\":2,\"attribute_value\":\"白色\",\"goods_attribute_name\":{\"name\":\"颜色\"}}]', '1549960409', '0');
 
 -- ----------------------------
 -- Table structure for user
