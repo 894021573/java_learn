@@ -27,7 +27,7 @@ public class Goods
     @Expose
     private Category category = new Category();
     @Expose
-    private List<GoodsAttribute> listGoodsAttribute = null;
+    private List<GoodsAttribute> goodsAttributes = null;
 
     public int getId()
     {
@@ -119,13 +119,13 @@ public class Goods
         this.category = category;
     }
 
-    public List<GoodsAttribute> getListGoodsAttribute()
+    public List<GoodsAttribute> getGoodsAttributes()
     {
-        return listGoodsAttribute;
+        return goodsAttributes;
     }
 
-    public void setListGoodsAttribute(List<GoodsAttribute> listGoodsAttribute)
+    public void setListGoodsAttribute(List<GoodsAttribute> goodsAttributes)
     {
-        this.listGoodsAttribute = listGoodsAttribute;
+        this.goodsAttributes = goodsAttributes;
     }
 }

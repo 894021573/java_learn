@@ -2,6 +2,7 @@ package cn.javaweb.service.bean;
 
 import cn.javaweb.bean.GoodsAttribute;
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -21,9 +22,10 @@ public class CartItem implements Serializable
     @Expose
     private int quantity;
     @Expose
-    private int buyNum;
+    private int buyNumber;
     @Expose
-    private List<GoodsAttribute> listGoodsAttribute = null;
+    @SerializedName("list_goods_attribute")
+    private List<GoodsAttribute> goodsAttributes = null;
 
     public int getGoodsId()
     {
@@ -75,23 +77,23 @@ public class CartItem implements Serializable
         this.quantity = quantity;
     }
 
-    public int getBuyNum()
+    public int getBuyNumber()
     {
-        return buyNum;
+        return buyNumber;
     }
 
-    public void setBuyNum(int buyNum)
+    public void setBuyNumber(int buyNum)
     {
-        this.buyNum = buyNum;
+        this.buyNumber = buyNum;
     }
 
-    public List<GoodsAttribute> getListGoodsAttribute()
+    public List<GoodsAttribute> getGoodsAttributes()
     {
-        return listGoodsAttribute;
+        return goodsAttributes;
     }
 
-    public void setListGoodsAttribute(List<GoodsAttribute> listGoodsAttribute)
+    public void setGoodsAttributes(List<GoodsAttribute> goodsAttributes)
     {
-        this.listGoodsAttribute = listGoodsAttribute;
+        this.goodsAttributes = goodsAttributes;
     }
 }

@@ -1,21 +1,17 @@
 package cn.javaweb.service.impl;
 
-import cn.javaweb.bean.Category;
-import cn.javaweb.bean.Goods;
-import cn.javaweb.bean.GoodsAttribute;
-import cn.javaweb.dao.impl.CategoryDaoImpl;
-import cn.javaweb.dao.impl.GoodsAttributeDaoImpl;
-import cn.javaweb.dao.impl.GoodsDaoImpl;
+import cn.javaweb.bean.*;
+import cn.javaweb.dao.OrderDao;
+import cn.javaweb.dao.OrderGoodsDao;
+import cn.javaweb.dao.impl.*;
 import cn.javaweb.service.GoodsService;
 import cn.javaweb.service.RedisKeyService;
 import cn.javaweb.service.bean.Cart;
 import cn.javaweb.service.bean.CartItem;
-import cn.javaweb.utils.JedisPoolUtil;
-import cn.javaweb.utils.RandomUtil;
-import cn.javaweb.utils.ReturnMapUtil;
-import cn.javaweb.utils.SerializeUtil;
+import cn.javaweb.utils.*;
 import redis.clients.jedis.Jedis;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class GoodsServiceImpl implements GoodsService
@@ -47,7 +43,6 @@ public class GoodsServiceImpl implements GoodsService
     @Override
     public Map<String, Object> addToCat(int userId, int goodsId)
     {
-//        Goods goods = (new GoodsDaoImpl()).getGoodsById(goodsId);
         Goods goods = (Goods) (new CommonServiceImpl()).getGoodsDetail(goodsId);
 
         if (goods != null) { // 商品存在
@@ -57,7 +52,7 @@ public class GoodsServiceImpl implements GoodsService
             cartItem.setGoodsName(goods.getName());
             cartItem.setPrice(goods.getPrice());
             cartItem.setQuantity(goods.getQuantity());
-            cartItem.setListGoodsAttribute(goods.getListGoodsAttribute());
+            cartItem.setGoodsAttributes(goods.getGoodsAttributes());
 
             Jedis jedis = JedisPoolUtil.getJedis();
             String key = RedisKeyService.getCartOfUserId(userId);
@@ -114,17 +109,35 @@ public class GoodsServiceImpl implements GoodsService
     }
 
     @Override
-    public Map<String, Object> placeOrder(List<CartItem> cartItems)
+    public Map<String, Object> placeOrder(int userId, List<CartItem> cartItems)
     {
-        // 生成订单号
-        String orderNo = RandomUtil.getOrderNo();
-        System.out.println(orderNo);
+        Order order = new Order();
+        order.setUserId(userId);
+        order.setOrderNumber(RandomUtil.getOrderNumber());
 
-        // 订单表
+        OrderDao orderDao = new OrderDaoImpl();
+        int orderId = orderDao.createOrder(order);
 
+        if (orderId > 0) {
+            for (CartItem cartItem : cartItems) {
+                OrderGoods orderGoods = new OrderGoods();
 
-        // 订单详情表
+                orderGoods.setUserId(userId);
+                orderGoods.setOrderId(orderId);
+                orderGoods.setGoodsId(cartItem.getGoodsId());
+                orderGoods.setPrice(cartItem.getPrice());
+                orderGoods.setBuyNumber(cartItem.getBuyNumber());
 
-        return null;
+                Goods goods = (Goods) (new CommonServiceImpl()).getGoodsDetail(cartItem.getGoodsId());
+                orderGoods.setAttributeJson(JsonUtil.toJson(goods.getGoodsAttributes()));
+
+                OrderGoodsDao orderGoodsDao = new OrderGoodsDaoImpl();
+                orderGoodsDao.createOrderGoods(orderGoods);
+            }
+        }
+
+        return ReturnMapUtil.setSuccessResult();
     }
+
+
 }

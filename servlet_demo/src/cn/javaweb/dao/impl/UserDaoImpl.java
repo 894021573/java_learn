@@ -20,37 +20,30 @@ public class UserDaoImpl implements UserDao
     public int saveUser(User user)
     {
         String sql = "insert into user (`name`,`password`,`created_at`) values (?,?,?)";
-        int affectNum = JDBCUtil.update(sql, user.getName(), user.getPassword(), DateUtil.getSecondTimestamp());
-
-        return affectNum;
+        return JDBCUtil.update(sql, user.getName(), user.getPassword(), DateUtil.getSecondTimestamp());
     }
 
     public User getUserByName(String name)
     {
         String sql = "select * from user where `name` = ? limit 1";
-        User user = JDBCUtil.queryOne(sql, User.class, name);
-        return user;
+        return JDBCUtil.queryOne(sql, User.class, name);
     }
 
     public int updateTime(int updatedAt, long id)
     {
         String sql = "update user set updated_at = ? where id = ?";
-        int affectNum = JDBCUtil.update(sql, updatedAt, id);
-        return affectNum;
+        return JDBCUtil.update(sql, updatedAt, id);
     }
 
     public int updateToken(String token, long id)
     {
         String sql = "update user set token = ? where id = ?";
-        int affectNum = JDBCUtil.update(sql, token, id);
-        return affectNum;
+        return JDBCUtil.update(sql, token, id);
     }
 
     public User getUserByToken(int userId, String token)
     {
         String sql = "select * from user where id = ? and token = ? limit 1";
-        User user = JDBCUtil.queryOne(sql, User.class, userId, token);
-
-        return user;
+        return JDBCUtil.queryOne(sql, User.class, userId, token);
     }
 }

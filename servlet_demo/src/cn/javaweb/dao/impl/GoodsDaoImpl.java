@@ -12,9 +12,9 @@ public class GoodsDaoImpl implements GoodsDao
     public List<Goods> listGoods()
     {
         String sql = "SELECT id,category_id,name,price,quantity FROM goods LIMIT 10";
-        List<Goods> listGoods = (List<Goods>) JDBCUtil.queryList(sql, Goods.class);
+        List<Goods> goods = (List<Goods>) JDBCUtil.queryList(sql, Goods.class);
 
-        return listGoods;
+        return goods;
     }
 
     @Override

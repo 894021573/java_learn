@@ -20,8 +20,8 @@ public class GoodsAttributeNameDaoImpl implements GoodsAttributeNameDao
 
         String ss = stringBuilder.substring(0, stringBuilder.length() - 1);
         String sql = "SELECT * FROM goods_attribute_name WHERE id IN (" + ss + ")";
-        List<GoodsAttributeName> goodsAttributeNameList = (List<GoodsAttributeName>) JDBCUtil.queryList(sql, goodsAttributeNameIds, GoodsAttributeName.class);
+        List<GoodsAttributeName> goodsAttributeNames = (List<GoodsAttributeName>) JDBCUtil.queryList(sql, goodsAttributeNameIds, GoodsAttributeName.class);
 
-        return goodsAttributeNameList;
+        return goodsAttributeNames;
     }
 }

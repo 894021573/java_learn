@@ -13,24 +13,24 @@ public class GoodsAttributeDaoImpl implements GoodsAttributeDao
     public List<GoodsAttribute> listGoodsAttribute(int goodsId)
     {
         String sql = "SELECT * FROM goods_attribute WHERE goods_id = ?";
-        List<GoodsAttribute> goodsAttributeList = (List<GoodsAttribute>) JDBCUtil.queryList(sql, GoodsAttribute.class, goodsId);
+        List<GoodsAttribute> goodsAttributes = (List<GoodsAttribute>) JDBCUtil.queryList(sql, GoodsAttribute.class, goodsId);
 
-        Integer[] goodsAttributeNameIds = new Integer[goodsAttributeList.size()];
-        for (int i = 0; i < goodsAttributeList.size(); i++) {
-            goodsAttributeNameIds[i] = goodsAttributeList.get(i).getAttributeNameId();
+        Integer[] goodsAttributeNameIds = new Integer[goodsAttributes.size()];
+        for (int i = 0; i < goodsAttributes.size(); i++) {
+            goodsAttributeNameIds[i] = goodsAttributes.get(i).getAttributeNameId();
         }
 
         GoodsAttributeNameDaoImpl goodsAttributeNameDao = new GoodsAttributeNameDaoImpl();
-        List<GoodsAttributeName> goodsAttributeNameList = goodsAttributeNameDao.listGoodsAttributeName(goodsAttributeNameIds);
+        List<GoodsAttributeName> goodsAttributeNames = goodsAttributeNameDao.listGoodsAttributeName(goodsAttributeNameIds);
 
-        for (int i = 0; i < goodsAttributeList.size(); i++) {
-            for (int j = 0; j < goodsAttributeNameList.size(); j++) {
-                if (goodsAttributeList.get(i).getAttributeNameId() == goodsAttributeNameList.get(j).getId()) {
-                    goodsAttributeList.get(i).setGoodsAttributeName(goodsAttributeNameList.get(j));
+        for (int i = 0; i < goodsAttributes.size(); i++) {
+            for (int j = 0; j < goodsAttributeNames.size(); j++) {
+                if (goodsAttributes.get(i).getAttributeNameId() == goodsAttributeNames.get(j).getId()) {
+                    goodsAttributes.get(i).setGoodsAttributeName(goodsAttributeNames.get(j));
                 }
             }
         }
 
-        return goodsAttributeList;
+        return goodsAttributes;
     }
 }

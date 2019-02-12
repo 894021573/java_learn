@@ -1,5 +1,6 @@
 package cn.javaweb.utils;
 
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -7,12 +8,17 @@ import java.util.UUID;
 
 public class RandomUtil
 {
+    public static void main(String[] args)
+    {
+        System.out.println(getOrderNumber());
+    }
+
     public static String getToken()
     {
         return UUID.randomUUID().toString().replace("-", "");
     }
 
-    public static String getOrderNo()
+    public static BigInteger getOrderNumber()
     {
         //格式化当前时间
         SimpleDateFormat sfDate = new SimpleDateFormat("yyMMddHHmmssSSS");
@@ -20,10 +26,11 @@ public class RandomUtil
 //        //得到17位时间如：20170411094039080
 //        System.out.println("时间17位：" + strDate);
         //为了防止高并发重复,再获取3个随机数
-        String random = getRandom620(5);
+        String random = getRandom620(4);
 
-        //最后得到20位订单编号。
-        return strDate + random;
+        //最后得到19位订单编号。
+        BigInteger orderNumber = new BigInteger(strDate + random);
+        return orderNumber;
     }
 
     /**

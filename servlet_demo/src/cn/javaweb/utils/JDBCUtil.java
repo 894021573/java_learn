@@ -4,7 +4,9 @@ import org.apache.commons.dbutils.*;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -20,7 +22,7 @@ public class JDBCUtil
     public static Connection getConnection()
     {
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/bona?serverTimezone=UTC&useAffectedRows=true";
+        String url = "jdbc:mysql://localhost:3306/bona?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF8&useAffectedRows=true";
         String username = "root";
         String password = "root";
         Connection connection;
@@ -141,6 +143,27 @@ public class JDBCUtil
             JDBCUtil.close(connection);
         }
         return affectNum;
+    }
+
+    public static int updateReturnGenerateId(String sql, Object... params)
+    {
+        Connection connection = JDBCUtil.getConnection();
+        QueryRunner queryRunner = new QueryRunner();
+        int affectNum = 0;
+        int id = 0;
+        try {
+            affectNum = queryRunner.update(connection, sql, params);
+
+            if (affectNum > 0) {
+                id = ((BigInteger) queryRunner.query(connection, "SELECT LAST_INSERT_ID()", new ScalarHandler(1))).intValue();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection);
+        }
+        return id;
     }
 
     public static void close(Connection connection)

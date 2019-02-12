@@ -42,8 +42,9 @@ public interface GoodsService
     /**
      * 下单
      *
+     * @param userId
      * @param cartItems
      * @return
      */
-    Map<String, Object> placeOrder(List<CartItem> cartItems);
+    Map<String, Object> placeOrder(int userId, List<CartItem> cartItems);
 }

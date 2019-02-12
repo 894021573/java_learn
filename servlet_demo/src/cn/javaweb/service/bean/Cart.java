@@ -43,10 +43,10 @@ public class Cart implements Serializable
         }
 
         if (findCartItem == null) {
-            cartItem.setBuyNum(1);
+            cartItem.setBuyNumber(1);
             listCartItem.add(cartItem);
         } else {
-            cartItem.setBuyNum(findCartItem.getBuyNum() + 1);
+            cartItem.setBuyNumber(findCartItem.getBuyNumber() + 1);
             listCartItem.set(findIndex, cartItem);
         }
     }
