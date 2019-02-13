@@ -61,7 +61,6 @@ public class UserServiceImpl implements UserService
 
     private void updateTime(int id)
     {
-        int updatedAt = DateUtil.getSecondTimestamp();
-        (new UserDaoImpl()).updateTime(updatedAt, id);
+        (new UserDaoImpl()).updateTime(id);
     }
 }

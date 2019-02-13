@@ -19,24 +19,24 @@ public class GoodsServiceImpl implements GoodsService
     @Override
     public Map<String, Object> listGoods()
     {
-        List<Goods> listGoods = (new GoodsDaoImpl()).listGoods();
-        Integer[] params = new Integer[listGoods.size()];
-        for (int i = 0; i < listGoods.size(); i++) {
-            params[i] = listGoods.get(i).getCategoryId();
+        List<Goods> goods = (new GoodsDaoImpl()).listGoods();
+        Integer[] params = new Integer[goods.size()];
+        for (int i = 0; i < goods.size(); i++) {
+            params[i] = goods.get(i).getCategoryId();
         }
 
         List<Category> categories = (new CategoryDaoImpl()).listCategory(params);
 
-        for (int i = 0; i < listGoods.size(); i++) {
+        for (int i = 0; i < goods.size(); i++) {
             for (int j = 0; j < categories.size(); j++) {
-                if (listGoods.get(i).getCategoryId() == categories.get(j).getId()) {
-                    listGoods.get(i).setCategory(categories.get(j));
+                if (goods.get(i).getCategoryId() == categories.get(j).getId()) {
+                    goods.get(i).setCategory(categories.get(j));
                 }
             }
         }
 
         Map<String, Object> resultMap = new LinkedHashMap<>();
-        resultMap.put("list_goods", listGoods);
+        resultMap.put("list_goods", goods);
         return ReturnMapUtil.setSuccessResult(resultMap);
     }
 

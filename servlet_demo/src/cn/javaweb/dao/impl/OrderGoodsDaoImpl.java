@@ -3,19 +3,26 @@ package cn.javaweb.dao.impl;
 import cn.javaweb.bean.OrderGoods;
 import cn.javaweb.dao.OrderGoodsDao;
 import cn.javaweb.utils.DateUtil;
-import cn.javaweb.utils.JDBCUtil;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class OrderGoodsDaoImpl implements OrderGoodsDao
+public class OrderGoodsDaoImpl extends BaseDaoImpl<OrderGoods> implements OrderGoodsDao
 {
     @Override
     public int createOrderGoods(OrderGoods orderGoods)
     {
-        String sql1 = "INSERT INTO `order_goods` (`user_id`, `order_id`, `goods_id`, `price`, `buy_number`, `attribute_json`, `created_at`) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
-        int affectNum = JDBCUtil.update(sql1, orderGoods.getUserId(),orderGoods.getOrderId(),orderGoods.getGoodsId(),orderGoods.getPrice(),orderGoods.getBuyNumber(),orderGoods.getAttributeJson(), DateUtil.getSecondTimestamp());
+        Map<String, Object> map = new HashMap<>();
+        map.put("user_id", orderGoods.getUserId());
+        map.put("order_id", orderGoods.getOrderId());
+        map.put("goods_id", orderGoods.getGoodsId());
+        map.put("price", orderGoods.getPrice());
+        map.put("buy_number", orderGoods.getBuyNumber());
+        map.put("attribute_json", orderGoods.getAttributeJson());
+        map.put("created_at", DateUtil.getSecondTimestamp());
 
-        return affectNum;
+        return this.save(map);
     }
 
     @Override

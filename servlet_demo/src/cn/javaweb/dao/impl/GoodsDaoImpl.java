@@ -2,19 +2,15 @@ package cn.javaweb.dao.impl;
 
 import cn.javaweb.bean.Goods;
 import cn.javaweb.dao.GoodsDao;
-import cn.javaweb.utils.JDBCUtil;
 
 import java.util.List;
 
-public class GoodsDaoImpl implements GoodsDao
+public class GoodsDaoImpl extends BaseDaoImpl<Goods> implements GoodsDao
 {
     @Override
     public List<Goods> listGoods()
     {
-        String sql = "SELECT id,category_id,name,price,quantity FROM goods LIMIT 10";
-        List<Goods> goods = (List<Goods>) JDBCUtil.queryList(sql, Goods.class);
-
-        return goods;
+        return this.findAll("LIMIT 10");
     }
 
     @Override
@@ -32,9 +28,6 @@ public class GoodsDaoImpl implements GoodsDao
     @Override
     public Goods getGoodsById(int goodsId)
     {
-        String sql = "SELECT id,shop_id,name,price,quantity FROM goods WHERE id = ?";
-        Goods goods = JDBCUtil.queryOne(sql, Goods.class, goodsId);
-
-        return goods;
+        return this.findOne("id = ?", goodsId);
     }
 }

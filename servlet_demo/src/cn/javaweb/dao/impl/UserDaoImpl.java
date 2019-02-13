@@ -3,47 +3,46 @@ package cn.javaweb.dao.impl;
 import cn.javaweb.bean.User;
 import cn.javaweb.dao.UserDao;
 import cn.javaweb.utils.DateUtil;
-import cn.javaweb.utils.JDBCUtil;
 
-public class UserDaoImpl implements UserDao
+import java.util.HashMap;
+import java.util.Map;
+
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao
 {
     @Override
     public User getUser(String name, String password)
     {
-        String sql = "select * from user where name = ? and password = ? limit 1";
-        User user = JDBCUtil.queryOne(sql, User.class, name, password);
-
-        return user;
+        return this.findOne("name = ? and password = ?", name, password);
     }
 
     @Override
     public int saveUser(User user)
     {
-        String sql = "insert into user (`name`,`password`,`created_at`) values (?,?,?)";
-        return JDBCUtil.update(sql, user.getName(), user.getPassword(), DateUtil.getSecondTimestamp());
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", user.getName());
+        map.put("password", user.getPassword());
+        map.put("created_at", DateUtil.getSecondTimestamp());
+
+        return this.save(map);
     }
 
     public User getUserByName(String name)
     {
-        String sql = "select * from user where `name` = ? limit 1";
-        return JDBCUtil.queryOne(sql, User.class, name);
+        return this.findOne("name = ?", name);
     }
 
-    public int updateTime(int updatedAt, long id)
+    public int updateTime(long id)
     {
-        String sql = "update user set updated_at = ? where id = ?";
-        return JDBCUtil.update(sql, updatedAt, id);
+        return this.update("updated_at = ?", "id = ?", DateUtil.getSecondTimestamp(), id);
     }
 
     public int updateToken(String token, long id)
     {
-        String sql = "update user set token = ? where id = ?";
-        return JDBCUtil.update(sql, token, id);
+        return this.update("token = ?", "id = ?", token, id);
     }
 
     public User getUserByToken(int userId, String token)
     {
-        String sql = "select * from user where id = ? and token = ? limit 1";
-        return JDBCUtil.queryOne(sql, User.class, userId, token);
+        return this.findOne("id = ? and token = ?", userId, token);
     }
 }

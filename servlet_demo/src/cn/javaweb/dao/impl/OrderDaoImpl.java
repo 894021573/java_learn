@@ -1,25 +1,26 @@
 package cn.javaweb.dao.impl;
 
 import cn.javaweb.bean.Order;
-import cn.javaweb.bean.OrderGoods;
 import cn.javaweb.dao.OrderDao;
-import cn.javaweb.dao.OrderGoodsDao;
 import cn.javaweb.utils.DateUtil;
-import cn.javaweb.utils.JDBCUtil;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class OrderDaoImpl implements OrderDao
+public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao
 {
 
     @Override
     public int createOrder(Order order)
     {
-        String sql = "INSERT INTO `order` ( `user_id`, `order_number`, `created_at`) VALUES (?, ?, ?)";
-        int orderId = JDBCUtil.updateReturnGenerateId(sql, order.getUserId(), order.getOrderNumber(), DateUtil.getSecondTimestamp());
+        Map<String, Object> map = new HashMap<>();
+        map.put("user_id", order.getUserId());
+        map.put("order_number", order.getOrderNumber());
+        map.put("created_at", DateUtil.getSecondTimestamp());
 
-        return orderId;
+        return this.save(map);
     }
 
     @Override
