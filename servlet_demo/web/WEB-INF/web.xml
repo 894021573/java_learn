@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>User</servlet-name>
-        <servlet-class>cn.javaweb.servlet.UserServlet</servlet-class>
+        <servlet-class>cn.xmall.servlet.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>User</servlet-name>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>Goods</servlet-name>
-        <servlet-class>cn.javaweb.servlet.GoodsServlet</servlet-class>
+        <servlet-class>cn.xmall.servlet.GoodsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Goods</servlet-name>
@@ -24,7 +24,7 @@
     
     <filter>
         <filter-name>AuthFilter</filter-name>
-        <filter-class>cn.javaweb.filter.AuthFilter</filter-class>
+        <filter-class>cn.xmall.filter.AuthFilter</filter-class>
         <init-param>
             <!-- 设置不需要验证的url -->
             <param-name>noValidatePath</param-name>
