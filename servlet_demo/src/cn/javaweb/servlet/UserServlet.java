@@ -1,15 +1,12 @@
 package cn.javaweb.servlet;
 
 import cn.javaweb.bean.User;
-
 import cn.javaweb.service.UserService;
 import cn.javaweb.service.impl.UserServiceImpl;
 import cn.javaweb.utils.ResponseUtil;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Map;
 
 public class UserServlet extends BaseServlet

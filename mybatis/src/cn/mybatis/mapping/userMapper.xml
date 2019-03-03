@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="cn.mybatis.mapping.UserMapper">
+    <!-- 在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，id属性值必须是唯一的，不能够重复
+    使用parameterType属性指明查询时使用的参数类型，resultType属性指明查询返回的结果集类型
+    resultType="me.gacl.domain.User"就表示将查询结果封装成一个User类的对象返回
+    User类就是users表所对应的实体类
+    -->
+    <!--
+        根据id查询得到一个user对象
+     -->
+    <select id="getUser" resultType="User">
+        select * from `user` where id=#{id} and `name`=#{name}
+    </select>
+
+    <select id="getUser2" resultType="cn.mybatis.domain.User">
+        select * from `user` where id=#{id} and `name`=#{name}
+    </select>
+
+    <select id="getUserByName" resultType="cn.mybatis.domain.User">
+        select * from `user` where id=#{id} and `name` like '%${name}%'
+    </select>
+
+    <select id="getAll" resultType="cn.mybatis.domain.User">
+        select * from `user` where `age`=#{age}
+    </select>
+
+    <select id="getByQueryUser" parameterType="cn.mybatis.domain.QueryUser" resultType="cn.mybatis.domain.User">
+        select * from `user` where `id`=#{user.id}
+    </select>
+
+    <insert id="insertUser" parameterType="cn.mybatis.domain.User">
+        <selectKey keyProperty="id" resultType="Integer" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO `user` (`name`, `age`) VALUES ( #{name}, #{age});
+    </insert>
+
+    <update id="updateUser" parameterType="cn.mybatis.domain.User">
+        UPDATE `mybatis`.`user` SET `name`=#{name} WHERE `id`=#{id};
+    </update>
+
+    <update id="deleteUser" parameterType="cn.mybatis.domain.User">
+        DELETE FROM `user` where id=#{id}
+    </update>
+</mapper>
