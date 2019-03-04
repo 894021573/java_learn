@@ -1,6 +1,6 @@
 package cn.demo.constructor;
 
-public class Test
+public class Constructor
 {
     public static void main(String[] args)
     {
