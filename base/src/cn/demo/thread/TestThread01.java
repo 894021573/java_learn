@@ -1,4 +1,4 @@
-package cn.demo.Thread;
+package cn.demo.thread;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
