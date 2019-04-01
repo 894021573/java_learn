@@ -81,7 +81,7 @@ public class TestString
         System.out.println(c);
 
         String a = "hello";
-        String b = "Hello";
+        String b = "是.Hello";
         System.out.println(a.compareToIgnoreCase(b));
 
         String h = "hello";
