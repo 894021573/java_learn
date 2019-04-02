@@ -1,4 +1,4 @@
-package cn.设计模式;
+package 设计模式;
 
 import java.util.ArrayList;
 import java.util.List;
