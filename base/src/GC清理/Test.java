@@ -1,13 +1,13 @@
-package cn.demo.finalize;
+package GC清理;
 
 public class Test
 {
     public static void main(String[] args)
     {
         Book b = new Book(true);
-//        b.checnIn();
+        b.checnIn();
 //
-//        new Book(true);
+        new Book(true);
         System.gc();
     }
 }
@@ -28,8 +28,7 @@ class Book
 
     protected void finalize()
     {
-        if (checkOut)
-        {
+        if (checkOut) {
             System.out.println("error: checkout out");
         }
     }
