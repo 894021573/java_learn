@@ -1,13 +1,12 @@
 package example.controller;
 
 import example.bean.User;
+import example.dao.UserDao;
 import example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/home")
@@ -16,9 +15,14 @@ public class IndexController
     @Autowired
     private UserService userService;
 
+    @Autowired
+   private UserDao userDao;
+
     @RequestMapping("/index")
     public String index()
     {
+        User user = userDao.findUserById(1);
+        System.out.println("name is" + user.getUsername());
         return "index";
     }
 

@@ -1,12 +1,9 @@
 package example.dao;
 
-import org.springframework.stereotype.Repository;
+import example.bean.User;
 
-@Repository
-public class UserDao
-{
-    public void getUser()
-    {
-        System.out.println("get user");
-    }
+public interface UserDao {
+
+    // 根据 id 寻找对应的 User
+    User findUserById(int id);
 }
