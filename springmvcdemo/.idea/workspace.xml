@@ -3,88 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ce892c41-6a4e-4920-8e84-2f0cd95e3514" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/META-INF/maven/com.springmvcdemo/springmvcdemo/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/META-INF/maven/com.springmvcdemo/springmvcdemo/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/META-INF/war-tracker" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/classes/example/bean/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/classes/example/controller/IndexController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/classes/example/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/classes/example/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/aspectjweaver-1.8.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/commons-fileupload-1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/commons-io-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/commons-lang3-3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/javax.servlet-api-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/jsp-api-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/mysql-connector-java-5.1.35.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/slf4j-api-1.7.21.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/slf4j-log4j12-1.7.21.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-aop-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-beans-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-context-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-core-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-expression-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-jdbc-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-test-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-tx-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/views/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/views/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/views/main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/springmvcdemo/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/bean/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/controller/IndexController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/example/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/classes/example/bean/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/classes/example/controller/IndexController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/classes/example/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/classes/example/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/aspectjweaver-1.8.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/commons-fileupload-1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/commons-io-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/commons-lang3-3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/javax.servlet-api-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/jsp-api-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/mysql-connector-java-5.1.35.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/slf4j-api-1.7.21.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/slf4j-log4j12-1.7.21.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-aop-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-beans-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-context-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-core-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-expression-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-jdbc-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-test-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-tx-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/views/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/views/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/views/main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springmvcdemo/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ignore" beforeDir="false" afterPath="$PROJECT_DIR$/.ignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -96,11 +15,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="369">
+              <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.ignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -123,6 +51,7 @@
       <find>AutowiredAnnotationBeanPostProcessor</find>
       <find>springmvc</find>
       <find>dbcp</find>
+      <find>mysq;l</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,6 +69,7 @@
         <option value="$PROJECT_DIR$/src/main/java/example/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/example/service/UserService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/.ignore" />
       </list>
     </option>
   </component>
@@ -156,7 +86,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="179" />
     <option name="y" value="65" />
     <option name="width" value="1513" />
@@ -191,31 +121,12 @@
               <item name="springmvcdemo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springmvcdemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springmvcdemo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springmvcdemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springmvcdemo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springmvcdemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springmvcdemo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springmvcdemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springmvcdemo" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -228,7 +139,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557473895535" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557474166521" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -244,8 +155,8 @@
       <recent name="example.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\java_learn\springmvcdemo\src\main\resources" />
       <recent name="F:\java_learn\springmvcdemo\src\main\webapp" />
+      <recent name="F:\java_learn\springmvcdemo\src\main\resources" />
       <recent name="F:\java_learn\springmvcdemo\src\main\webapp\WEB-INF" />
       <recent name="F:\java_learn\springmvcdemo\src\main\webapp\WEB-INF\views" />
     </key>
@@ -277,12 +188,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14274000" />
+    <option name="totallyTimeSpent" value="14555000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16311301" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17270789" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -454,8 +365,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="369">
+          <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.ignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
         </state>
       </provider>
     </entry>
