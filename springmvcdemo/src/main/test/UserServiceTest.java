@@ -1,5 +1,6 @@
 import blog.bean.User;
-import blog.dao.UserDao;
+import blog.controller.IndexController;
+import blog.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,15 +9,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring-mybatis.xml"})
-public class UserDaoTest {
-
+public class UserServiceTest
+{
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
+
 
     @Test
-    public void testGetUserById() {
-        int id = 1;
-        User user = userDao.getUserById(id);
-        System.out.println("name:" + user.getUsername());
+    public void testGetUser()
+    {
+        User user = userService.getUser("A2");
+        System.out.println(user);
     }
 }

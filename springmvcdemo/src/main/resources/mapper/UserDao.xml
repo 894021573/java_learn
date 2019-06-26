@@ -2,10 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 设置为IUserDao接口方法提供sql语句配置 -->
-<mapper namespace="example.dao.UserDao">
+<mapper namespace="blog.dao.UserDao">
 
-    <select id="findUserById" resultType="example.bean.User" parameterType="int">
+    <select id="getUserById" resultType="blog.bean.User" parameterType="int">
         SELECT * FROM user WHERE id = #{id}
+    </select>
+
+    <select id="getUserByUsername" resultType="blog.bean.User" parameterType="String">
+        SELECT * FROM user WHERE username = #{username}
     </select>
 
 </mapper>
