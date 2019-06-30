@@ -12,8 +12,8 @@ public class Ademo
         UserSubjectImpl userSubject = new UserSubjectImpl();
 
         // 注册观察者
-        UserLoginObserverImpl userLoginObserver = new UserLoginObserverImpl(userSubject);
-        UserRegisterObserverImpl userRegisterObserver = new UserRegisterObserverImpl(userSubject);
+        new UserLoginObserverImpl(userSubject);
+        new UserRegisterObserverImpl(userSubject);
 
         // 主题数据变化
         userSubject.setId(1);

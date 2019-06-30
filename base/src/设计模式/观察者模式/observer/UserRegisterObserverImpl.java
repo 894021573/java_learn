@@ -1,6 +1,7 @@
 package 设计模式.观察者模式.observer;
 
 import 设计模式.观察者模式.subject.Subject;
+import 设计模式.观察者模式.subject.UserSubjectImpl;
 
 import java.util.Map;
 
@@ -12,8 +13,9 @@ public class UserRegisterObserverImpl implements Observer
     }
 
     @Override
-    public void update(Map<String, Object> map)
+    public void update(Subject userSubject)
     {
-        System.out.println("用户注册：" + map.get("id") + map.get("name") + map.get("score"));
+        UserSubjectImpl userSubjectImpl = (UserSubjectImpl)userSubject;
+        System.out.println("用户注册：" + userSubjectImpl.getId() + userSubjectImpl.getName() + userSubjectImpl.getScore());
     }
 }

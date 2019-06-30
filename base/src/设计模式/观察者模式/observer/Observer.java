@@ -6,5 +6,5 @@ import java.util.Map;
 
 public interface Observer
 {
-    void update(Map<String,Object> map);
+    void update(Subject subject);
 }

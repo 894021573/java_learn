@@ -30,15 +30,10 @@ public class UserSubjectImpl implements Subject
     @Override
     public void noticeObserver()
     {
-        Map<String,Object> map = new HashMap<>();
-        map.put("id",this.getId());
-        map.put("name",this.getName());
-        map.put("score",this.getScore());
-
         for(int i = 0;i < observers.size();i++)
         {
             Observer observer = observers.get(i);
-            observer.update(map);
+            observer.update(this);
         }
     }
 
