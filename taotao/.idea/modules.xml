@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/taotaocommon/taotaocommon.iml" filepath="$PROJECT_DIR$/taotaocommon/taotaocommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaomanage/taotaomanage.iml" filepath="$PROJECT_DIR$/taotaomanage/taotaomanage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaomanage/taotaomanagepojo/taotaomanagepojo.iml" filepath="$PROJECT_DIR$/taotaomanage/taotaomanagepojo/taotaomanagepojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaoparent/taotaoparent.iml" filepath="$PROJECT_DIR$/taotaoparent/taotaoparent.iml" />
+    </modules>
+  </component>
+</project>
