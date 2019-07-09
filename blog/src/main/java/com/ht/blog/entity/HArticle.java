@@ -27,6 +27,10 @@ public class HArticle implements Serializable
     @NotEmpty(groups = {CreateAction.class}, message = HArticleMessage.CONTENT_NOT_EMPTY)
     private String content;
 
+    private Integer viewNum;
+
+    private Integer commentNum;
+
     private Integer createdAt;
 
     private Integer updatedAt;
@@ -84,6 +88,26 @@ public class HArticle implements Serializable
     public void setContent(String content)
     {
         this.content = content == null ? null : content.trim();
+    }
+
+    public Integer getViewNum()
+    {
+        return viewNum;
+    }
+
+    public void setViewNum(Integer viewNum)
+    {
+        this.viewNum = viewNum;
+    }
+
+    public Integer getCommentNum()
+    {
+        return commentNum;
+    }
+
+    public void setCommentNum(Integer commentNum)
+    {
+        this.commentNum = commentNum;
     }
 
     public Integer getCreatedAt()

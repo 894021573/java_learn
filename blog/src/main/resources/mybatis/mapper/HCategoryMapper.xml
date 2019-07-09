@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.ht.blog.entity.HCategory">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="num" jdbcType="INTEGER" property="num" />
     <result column="created_at" jdbcType="INTEGER" property="createdAt" />
     <result column="updated_at" jdbcType="INTEGER" property="updatedAt" />
   </resultMap>
@@ -17,7 +18,7 @@
     )
   </insert>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, `name`, created_at, updated_at
+    select id, `name`, num, created_at, updated_at
     from h_category
   </select>
 

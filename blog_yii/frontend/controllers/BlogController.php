@@ -50,6 +50,7 @@ class BlogController extends BaseController
             'categoryId' => $categoryId,
         ]);
 
+//        var_dump($article);exit();
         $article = $article['article'];
         $article['showPage'] = '';
         if (!empty($article['list'])) {

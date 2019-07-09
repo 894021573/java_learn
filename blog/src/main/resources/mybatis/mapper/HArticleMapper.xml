@@ -7,6 +7,8 @@
         <result column="category_id" jdbcType="INTEGER" property="categoryId"/>
         <result column="title" jdbcType="VARCHAR" property="title"/>
         <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+        <result column="view_num" jdbcType="INTEGER" property="viewNum"/>
+        <result column="comment_num" jdbcType="INTEGER" property="commentNum"/>
         <result column="created_at" jdbcType="INTEGER" property="createdAt"/>
         <result column="updated_at" jdbcType="INTEGER" property="updatedAt"/>
         <!-- 关联对象 -->
@@ -31,7 +33,7 @@
     </insert>
     <select id="selectAll" resultMap="BaseResultMap">
         select
-        a.id, a.user_id, a.category_id, a.title, a.content, a.created_at, a.updated_at,
+        a.id, a.user_id, a.category_id, a.title, a.content, a.view_num, a.comment_num, a.created_at, a.updated_at,
         u.nickname,
         c.name as category_name
         from h_article as a
@@ -40,6 +42,9 @@
         <if test="userId != 0">
             where a.user_id=#{userId,jdbcType=INTEGER}
         </if>
+        <if test="userId != 0 and categoryId != 0">
+            and a.category_id=#{categoryId,jdbcType=INTEGER}
+        </if>
         order by a.created_at desc
         limit ${(pageNum - 1) * pageSize},${pageSize}
     </select>
@@ -47,13 +52,16 @@
     <select id="count" resultType="java.lang.Integer">
         select count(id) from h_article
         <if test="userId != 0">
-          where user_id=#{userId,jdbcType=INTEGER}
+            where user_id=#{userId,jdbcType=INTEGER}
+        </if>
+        <if test="userId != 0 and categoryId != 0">
+            and category_id=#{categoryId,jdbcType=INTEGER}
         </if>
     </select>
 
     <select id="selectById" resultMap="BaseResultMap">
         select
-        a.id, a.user_id, a.category_id, a.title, a.content, a.created_at,
+        a.id, a.user_id, a.category_id, a.title, a.content, a.view_num, a.comment_num ,a.created_at,
         u.nickname,
         c.name as category_name
         from h_article as a

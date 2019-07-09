@@ -12,6 +12,10 @@ public class ArticleVo
 
     private String content;
 
+    private Integer viewNum;
+
+    private Integer commentNum;
+
     private Integer createdAt;
 
     private UserVo userVo;
@@ -66,6 +70,26 @@ public class ArticleVo
     public void setContent(String content)
     {
         this.content = content;
+    }
+
+    public Integer getViewNum()
+    {
+        return viewNum;
+    }
+
+    public void setViewNum(Integer viewNum)
+    {
+        this.viewNum = viewNum;
+    }
+
+    public Integer getCommentNum()
+    {
+        return commentNum;
+    }
+
+    public void setCommentNum(Integer commentNum)
+    {
+        this.commentNum = commentNum;
     }
 
     public Integer getCreatedAt()
