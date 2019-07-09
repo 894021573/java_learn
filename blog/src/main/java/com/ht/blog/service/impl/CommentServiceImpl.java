@@ -53,6 +53,8 @@ public class CommentServiceImpl implements CommentService
         hComment.setCreatedAt(DateUtil.getSecondTimestamp(null));
         hCommentMapper.insert(hComment);
 
+        hArticleMapper.incCommentNum(hComment.getContentId());
+
         Map<String, Object> param = new HashMap<>();
         param.put("id", hComment.getId());
         return Response.success(param);
