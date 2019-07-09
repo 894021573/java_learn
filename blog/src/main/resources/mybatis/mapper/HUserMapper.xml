@@ -14,19 +14,37 @@
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into h_user (username, `password`, token,
-        expired_at, created_at, updated_at
+        insert into h_user (username, `password`, nickname, avatar_url, created_at
         )
-        values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=CHAR}, #{token,jdbcType=VARCHAR},
-        #{expiredAt,jdbcType=INTEGER}, #{createdAt,jdbcType=INTEGER}, #{updatedAt,jdbcType=INTEGER}
+        values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=CHAR}, #{nickname,jdbcType=VARCHAR},
+        #{avatarUrl,jdbcType=VARCHAR}, #{createdAt,jdbcType=INTEGER}
         )
     </insert>
+
     <select id="selectAll" resultMap="BaseResultMap">
     select id, username, `password`, token, expired_at, created_at, updated_at
     from h_user
-  </select>
+    </select>
+
     <select id="selectOne" resultMap="BaseResultMap">
-    select id, username, `password`, token, expired_at, created_at, updated_at
+    select id, username, nickname, avatar_url, token, expired_at, created_at, updated_at
     from h_user where username = #{username,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
-  </select>
+    </select>
+
+    <select id="selectByUsername" resultMap="BaseResultMap">
+        select id, username, nickname, avatar_url
+        from h_user where username = #{username,jdbcType=VARCHAR} limit 1
+    </select>
+
+    <select id="selectByToken" resultMap="BaseResultMap">
+        select id, username, nickname, avatar_url, token, expired_at
+        from h_user where token = #{token,jdbcType=VARCHAR} limit 1
+    </select>
+
+    <update id="updateToken">
+        update h_user
+            set token = #{token},
+                expired_at = #{expiredAt}
+            where id = #{id}
+    </update>
 </mapper>

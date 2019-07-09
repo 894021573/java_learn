@@ -6,10 +6,17 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface HUserMapper {
-    int insert(HUser record);
+public interface HUserMapper
+{
+    int insert(HUser hUser);
 
     List<HUser> selectAll();
 
     HUser selectOne(HUser hUser);
+
+    HUser selectByUsername(String username);
+
+    HUser selectByToken(String token);
+
+    int updateToken(Integer id, String token, int expiredAt);
 }
