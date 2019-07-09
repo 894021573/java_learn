@@ -26,6 +26,9 @@ public class HUser implements Serializable
     @NotEmpty(groups = CreateAction.class, message = HUserMessage.AVATAR_URL_NOT_EMPTY)
     private String avatarUrl;
 
+    @NotEmpty(groups = CreateAction.class, message = HUserMessage.EMAIL_NOT_EMPTY)
+    private String email;
+
     private String token;
 
     private Integer expiredAt;
@@ -84,6 +87,16 @@ public class HUser implements Serializable
     public void setAvatarUrl(String avatarUrl)
     {
         this.avatarUrl = avatarUrl;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
     }
 
     public String getToken()

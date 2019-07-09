@@ -61,4 +61,25 @@
         inner join h_category as c on a.category_id=c.id
         where a.id = #{id,jdbcType=INTEGER}
     </select>
+
+    <update id="incViewNum">
+        update h_article set view_num = view_num + 1 where id=#{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="incCommentNum">
+        update h_article set comment_num = comment_num + 1 where id=#{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="update">
+        update h_article set
+        category_id = #{categoryId,jdbcType=INTEGER},
+        title = #{title,jdbcType=VARCHAR},
+        content = #{content,jdbcType=LONGVARCHAR},
+        updated_at=#{updatedAt,jdbcType=INTEGER}
+        where id=#{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from h_article where id = #{id}
+    </delete>
 </mapper>

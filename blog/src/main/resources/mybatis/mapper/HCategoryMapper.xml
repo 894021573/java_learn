@@ -11,13 +11,35 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into h_category (`name`, created_at, updated_at
-      )
-    values (#{name,jdbcType=VARCHAR}, #{createdAt,jdbcType=INTEGER}, #{updatedAt,jdbcType=INTEGER}
-      )
+    insert into h_category (user_id, `name`, created_at
+    )
+    values (#{userId,jdbcType=INTEGER},#{name,jdbcType=VARCHAR}, #{createdAt,jdbcType=INTEGER}
+    )
   </insert>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, `name`, created_at, updated_at
     from h_category
   </select>
+
+  <select id="selectCategory" resultMap="BaseResultMap">
+    select id, user_id ,`name`, num, created_at, updated_at
+    from h_category where user_id=#{userId,jdbcType=INTEGER} and `name`=#{name,jdbcType=VARCHAR} limit 1
+  </select>
+
+  <select id="selectById" resultMap="BaseResultMap">
+    select id, user_id ,`name`, num, created_at, updated_at
+    from h_category where id=#{id,jdbcType=INTEGER} limit 1
+  </select>
+
+  <update id="incNum">
+    update h_category set num = num + 1 where id=#{id,jdbcType=INTEGER}
+  </update>
+
+  <update id="update">
+    update h_category set `name` = #{name,jdbcType=VARCHAR},updated_at=#{updatedAt,jdbcType=INTEGER} where id=#{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteCategory" parameterType="java.lang.Integer">
+    delete from h_category where id = #{id}
+  </delete>
 </mapper>

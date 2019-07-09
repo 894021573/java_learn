@@ -1,6 +1,7 @@
 package com.ht.blog.service.impl;
 
 import com.ht.blog.common.help.result.AuthCodeMsg;
+import com.ht.blog.configurer.RabbitMQConfig;
 import com.ht.blog.dao.HUserMapper;
 import com.ht.blog.entity.HUser;
 import com.ht.blog.service.AuthService;
@@ -11,6 +12,7 @@ import common.util.result.Response;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.amqp.core.AmqpTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +21,9 @@ import java.util.Map;
 public class AuthServiceImpl implements AuthService
 {
     private HUserMapper hUserMapper;
+
+    @Autowired
+    private AmqpTemplate rabbitTemplate;
 
     @Autowired
     public void sethUserMapper(HUserMapper hUserMapper)
@@ -44,6 +49,15 @@ public class AuthServiceImpl implements AuthService
             BeanUtils.copyProperties(hUser, authLoginVo);
             Map<String, Object> param = new HashMap<>();
             param.put("user", authLoginVo);
+
+            Map<String,String> map = new HashMap<>();
+            map.put("title","欢迎" + hUser.getNickname());
+            map.put("content","欢迎写blog");
+            map.put("email",hUser.getEmail());
+
+            rabbitTemplate.convertAndSend(RabbitMQConfig.SEND_REGISTER_MAIL_QUEUE_NAME, map);
+
+//            mailService.sendMail("欢迎注册","热烈欢迎","894021573@qq.com");
 
             return Response.success(param);
         }
