@@ -39,7 +39,7 @@ public class CommentServiceImpl implements CommentService
         this.hCommentMapper = hCommentMapper;
     }
 
-    // 发布文章
+    // 发布评论
     @Override
     public Response<Map<String, Object>> addComment(HComment hComment)
     {

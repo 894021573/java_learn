@@ -10,7 +10,7 @@ import com.ht.blog.dao.HUserMapper;
 import com.ht.blog.entity.HArticle;
 import com.ht.blog.entity.HCategory;
 import com.ht.blog.service.ArticleService;
-
+import com.ht.blog.service.ext.CommonService;
 import com.ht.blog.vo.listArticle.ArticleVo;
 import com.ht.blog.vo.listArticle.CategoryVo;
 import com.ht.blog.vo.listArticle.ListArticleVo;
@@ -150,6 +150,10 @@ public class ArticleServiceImpl implements ArticleService
     @Override
     public Response<Map<String, Object>> addCategory(HCategory hCategory)
     {
+        if(hCategoryMapper.selectCategory(hCategory.getUserId(),hCategory.getName()) != null){
+            return Response.error(CategoryCodeMsg.CATEGOTY_IS_EXISTS);
+        }
+
         hCategory.setCreatedAt(DateUtil.getSecondTimestamp(null));
         int insertNum = hCategoryMapper.insert(hCategory);
 

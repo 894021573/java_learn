@@ -3,6 +3,7 @@
 <mapper namespace="com.ht.blog.dao.HCategoryMapper">
   <resultMap id="BaseResultMap" type="com.ht.blog.entity.HCategory">
     <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="num" jdbcType="INTEGER" property="num" />
     <result column="created_at" jdbcType="INTEGER" property="createdAt" />
@@ -13,13 +14,13 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into h_category (user_id, `name`, created_at
-    )
+      )
     values (#{userId,jdbcType=INTEGER},#{name,jdbcType=VARCHAR}, #{createdAt,jdbcType=INTEGER}
-    )
+      )
   </insert>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, `name`, num, created_at, updated_at
-    from h_category
+    select id, user_id ,`name`, num, created_at, updated_at
+    from h_category where user_id=#{userId,jdbcType=INTEGER}
   </select>
 
   <select id="selectCategory" resultMap="BaseResultMap">

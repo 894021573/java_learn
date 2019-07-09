@@ -1,6 +1,7 @@
 package com.ht.blog.entity;
 
 import com.ht.blog.common.help.valid.groups.CreateAction;
+import com.ht.blog.common.help.valid.groups.UpdateAction;
 import com.ht.blog.common.help.valid.message.HArticleMessage;
 import com.ht.blog.dao.HArticleMapper;
 import org.springframework.stereotype.Component;
@@ -18,13 +19,13 @@ public class HArticle implements Serializable
     @NotNull(groups = {CreateAction.class}, message = HArticleMessage.USER_ID_NOT_EMPTY)
     private Integer userId;
 
-    @NotNull(groups = {CreateAction.class}, message = HArticleMessage.CATEGOTY_ID_NOT_EMPTY)
+    @NotNull(groups = {CreateAction.class, UpdateAction.class}, message = HArticleMessage.CATEGOTY_ID_NOT_EMPTY)
     private Integer categoryId;
 
-    @NotEmpty(groups = {CreateAction.class}, message = HArticleMessage.TITLE_NOT_EMPTY)
+    @NotEmpty(groups = {CreateAction.class, UpdateAction.class}, message = HArticleMessage.TITLE_NOT_EMPTY)
     private String title;
 
-    @NotEmpty(groups = {CreateAction.class}, message = HArticleMessage.CONTENT_NOT_EMPTY)
+    @NotEmpty(groups = {CreateAction.class, UpdateAction.class}, message = HArticleMessage.CONTENT_NOT_EMPTY)
     private String content;
 
     private Integer viewNum;
@@ -90,6 +91,11 @@ public class HArticle implements Serializable
         this.content = content == null ? null : content.trim();
     }
 
+    public Integer getCreatedAt()
+    {
+        return createdAt;
+    }
+
     public Integer getViewNum()
     {
         return viewNum;
@@ -108,11 +114,6 @@ public class HArticle implements Serializable
     public void setCommentNum(Integer commentNum)
     {
         this.commentNum = commentNum;
-    }
-
-    public Integer getCreatedAt()
-    {
-        return createdAt;
     }
 
     public void setCreatedAt(Integer createdAt)
@@ -159,10 +160,13 @@ public class HArticle implements Serializable
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
+        sb.append(", categoryId=").append(categoryId);
         sb.append(", title=").append(title);
         sb.append(", createdAt=").append(createdAt);
         sb.append(", updatedAt=").append(updatedAt);
         sb.append(", content=").append(content);
+        sb.append(", viewNum=").append(viewNum);
+        sb.append(", commentNum=").append(commentNum);
         sb.append(", user=").append(hUser);
         sb.append(", category=").append(hCategory);
         sb.append(", serialVersionUID=").append(serialVersionUID);

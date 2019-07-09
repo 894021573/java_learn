@@ -17,7 +17,7 @@ public class WebConfig extends WebMvcConfigurationSupport
     protected void addInterceptors(InterceptorRegistry registry)
     {
         registry.addInterceptor(authInterceptor())
-                .addPathPatterns("/addArticle", "/addComment", "/listMyArticle");
+                .addPathPatterns("/addArticle", "/editArticle", "/deleteArticle", "/addComment", "/listMyArticle", "/addCategory","/editCategory","/deleteCategory","/showCategory");
 
         super.addInterceptors(registry);
     }
