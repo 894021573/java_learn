@@ -26,14 +26,14 @@
                 <h4><a href="index.php?r=blog/show-article&id=<?= $item['id'] ?>" style="color:#015fb6"><?= $item['title'] ?></a></h4>
                 <p><?= $item['content'] ?></p>
                 <div class="post_item_foot">
-                    <a href="https://www.cnblogs.com/kakake/" class="lightblue"><?= $item['userVo']['nickname'] ?></a>
+                    <a href="" class="lightblue"><?= $item['userVo']['nickname'] ?></a>
                     发布于 <?= date('Y-m-d H:i:s', $item['createdAt']) ?>
                     <span class="article_comment">
-                    <a href="https://www.cnblogs.com/kakake/p/11142389.html#commentform" title=""
+                    <a href="" title=""
                        class="gray">评论(<?= $item['commentNum'] ?>)</a>
                 </span>
                     <span class="article_view">
-                    <a href="https://www.cnblogs.com/kakake/p/11142389.html" class="gray">阅读(<?= $item['viewNum'] ?>
+                    <a href="" class="gray">阅读(<?= $item['viewNum'] ?>
                         )</a>
                 </span></div>
 
