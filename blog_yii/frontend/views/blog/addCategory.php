@@ -1,12 +1,16 @@
 <main>
-    <form action="index.php?r=blog/do-add-category" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
-        <div id="plpost">
-            <p class="yname"><span>类名:</span>
-                <input name="name" type="text" class="inputText" id="username" value="" size="30" autocomplete="off">
-            </p>
-            <p>
-                <input name="imageField" type="submit" value="发布" style="float: left">
-            </p>
+    <form class="form-horizontal" role="form" action="index.php?r=blog/do-add-category" method="post">
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">类名:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button type="submit" class="btn btn-primary">添加</button>
+            </div>
+        </div>
             <div style="clear:both"></div>
             <p style="color: red;">
                 <?php
@@ -14,6 +18,6 @@
                 // echo Yii::$app->getSession()->getFlash('success');
                 ?>
             </p>
-        </div>
+
     </form>
 </main>

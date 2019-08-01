@@ -1,29 +1,39 @@
 <main>
-    <form action="index.php?r=blog/do-add-article" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
-        <div id="plpost">
-            <p class="yname"><span>标题:</span>
-                <input name="title" type="text" class="inputText" id="username" value="" size="30" autocomplete="off">
-            </p>
-            <p class="yname"><span>分类:</span>
-                <select name="categoryId">
-                    <?php foreach ($this->context->category as $item): ?>
-                    <option value="<?=$item['id']?>"><?=$item['name']?></option>
-                    <?php endforeach;?>
-                </select>
-            </p>
-            <p class="yzm"><span>内容:</span>
-                <textarea name="content" rows="30" id="saytext"></textarea>
-            </p>
-            <p>
-                <input name="imageField" type="submit" value="发布" style="float: left">
-            </p>
-            <div style="clear:both"></div>
-            <p style="color: red;">
-                <?php
-                echo Yii::$app->getSession()->getFlash('error');
-                // echo Yii::$app->getSession()->getFlash('success');
-                ?>
-            </p>
+    <form class="form-horizontal" role="form" action="index.php?r=blog/do-add-article" method="post">
+        <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">标题:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="title" name="title" autocomplete="off">
+            </div>
         </div>
+        <div class="form-group">
+            <label for="categoryId" class="col-sm-2 control-label">分类:</label>
+            <div class="col-sm-10">
+                <select id="categoryId" class="form-control" name="categoryId">
+                    <?php foreach ($this->context->category as $item): ?>
+                        <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="content" class="col-sm-2 control-label">内容:</label>
+            <div class="col-sm-10">
+                <textarea id="content" name="content" class="form-control" rows="30"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button type="submit" class="btn btn-primary">发布</button>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        <p style="color: red;">
+            <?php
+            echo Yii::$app->getSession()->getFlash('error');
+            // echo Yii::$app->getSession()->getFlash('success');
+            ?>
+        </p>
     </form>
 </main>

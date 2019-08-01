@@ -21,19 +21,21 @@
 
 <main class="r_box">
     <?php foreach ($categories as $item): ?>
-        <li>
-            <!--            <i><a href="/"><img src="statistic/images/1.jpg"></a></i>-->
-            <h3><a href="index.php?r=blog/list-my-article&categoryId=<?= $item['id'] ?>"><?= $item['name'] ?></a></h3>
-            <div class="post_item_foot">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4><a href="index.php?r=blog/list-my-article&categoryId=<?= $item['id'] ?>" style="color:#015fb6"><?= $item['name'] ?></a></h4>
+                <div class="post_item_foot">
                 <span class="article_view" style="float:right;">
                     <a href="index.php?r=blog/delete-category&id=<?=$item['id']?>" class="gray" onclick="return del()">删除</a>
                 </span>
 
-                <span class="article_view" style="float:right;">
+                    <span class="article_view" style="float:right;">
                     <a href="index.php?r=blog/edit-category&id=<?=$item['id']?>" class="gray">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
+                </div>
+
             </div>
-        </li>
+        </div>
     <?php endforeach; ?>
 </main>
 
