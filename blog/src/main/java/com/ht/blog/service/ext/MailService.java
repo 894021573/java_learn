@@ -2,6 +2,7 @@ package com.ht.blog.service.ext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
@@ -17,7 +18,7 @@ public class MailService
     private String from;
 
     @Async  //意思是异步调用这个方法
-    public void sendMail(String title, String content, String email) {
+    public void sendMail(String title, String content, String email) throws MailException {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from); // 发送人的邮箱
         message.setSubject(title); //标题

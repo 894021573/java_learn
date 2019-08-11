@@ -56,6 +56,7 @@ public class AuthServiceImpl implements AuthService
             map.put("email",hUser.getEmail());
 
             rabbitTemplate.convertAndSend(RabbitMQConfig.SEND_REGISTER_MAIL_QUEUE_NAME, map);
+//            rabbitTemplate.convertAndSend(RabbitMQConfig.QUEUE_NAME, "hello ni");
 
 //            mailService.sendMail("欢迎注册","热烈欢迎","894021573@qq.com");
 
