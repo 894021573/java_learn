@@ -57,4 +57,16 @@ public class AuthLoginVo
     {
         this.token = token;
     }
+
+    @Override
+    public String toString()
+    {
+        return "AuthLoginVo{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", token='" + token + '\'' +
+                '}';
+    }
 }

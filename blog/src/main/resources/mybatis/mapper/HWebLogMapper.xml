@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.blog.dao.HWebLogMapper">
+  <resultMap id="BaseResultMap" type="com.ht.blog.entity.HWebLog">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="request" jdbcType="VARCHAR" property="request" />
+    <result column="response" jdbcType="VARCHAR" property="response" />
+    <result column="created_at" jdbcType="INTEGER" property="createdAt" />
+    <result column="updated_at" jdbcType="INTEGER" property="updatedAt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.ht.blog.entity.HWebLog">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into h_web_log (url, `method`, ip, request, created_at)
+    values (#{url,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{request,jdbcType=VARCHAR}, #{createdAt,jdbcType=INTEGER})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, url, `method`, ip, request, response, created_at
+    from h_web_log
+  </select>
+
+  <update id="updateResponse">
+    update h_web_log
+    set response = #{response},
+    updated_at = #{updatedAt}
+    where id = #{id}
+  </update>
+</mapper>

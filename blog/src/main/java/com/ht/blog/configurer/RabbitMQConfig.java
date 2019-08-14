@@ -16,6 +16,10 @@ public class RabbitMQConfig
 
     public static final String SEND_REGISTER_MAIL_QUEUE_NAME = "send_register_mail_queue_name";
 
+    public static final String SEND_REGISTER_MAIL_QUEUE_NAME2 = "send_register_mail_queue_name2";
+
+    public static final String SEND_REGISTER_MAIL_QUEUE_NAME3 = "send_register_mail_queue_name3";
+
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
@@ -27,5 +31,15 @@ public class RabbitMQConfig
     @Bean
     public Queue sendRegisterMailQueueName() {
         return new Queue(SEND_REGISTER_MAIL_QUEUE_NAME);
+    }
+
+    @Bean
+    public Queue sendRegisterMailQueueName2() {
+        return new Queue(SEND_REGISTER_MAIL_QUEUE_NAME2);
+    }
+
+    @Bean
+    public Queue sendRegisterMailQueueName3() {
+        return new Queue(SEND_REGISTER_MAIL_QUEUE_NAME3);
     }
 }
