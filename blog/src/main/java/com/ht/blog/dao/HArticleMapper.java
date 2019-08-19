@@ -16,6 +16,8 @@ public interface HArticleMapper
 
     List<HArticle> selectAll(int pageNum, int pageSize, int userId, int categoryId);
 
+    List<HArticle> selectAllForTask(int startTime, int endTime);
+
     Integer count(@Param("userId") int userId, @Param("categoryId") int categoryId);
 
     HArticle selectById(int id);

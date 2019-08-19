@@ -21,6 +21,7 @@ class BlogController extends BaseController
         $pageNum = Yii::$app->request->get('pageNum', 1);
 
         $article = $this->curlPost('listArticle', [
+            'title' => $this->get('content', ''),
             'pageNum' => $pageNum,
             'pageSize' => $this->pageSize,
         ]);
@@ -28,10 +29,11 @@ class BlogController extends BaseController
         $article = $article['article'];
         $article['showPage'] = '';
         if (!empty($article['list'])) {
-            $pageUtil = new PageUtil($article['total'], $article['pageSize'], $article['pageNum'], 'index.php?r=blog/list-article&pageNum={page}');
+            $pageUtil = new PageUtil($article['total'], $article['pageSize'], $article['pageNum'], 'index.php?r=blog/list-article&pageNum={page}' . '&content=' . $this->get('content', ''));
             $article['showPage'] = $pageUtil->showPage();
         }
 
+        $this->content = $this->get('content', '');
         return $this->render('listArticle', $article);
     }
 

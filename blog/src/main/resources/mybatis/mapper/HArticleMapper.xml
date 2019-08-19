@@ -49,6 +49,18 @@
         limit ${(pageNum - 1) * pageSize},${pageSize}
     </select>
 
+    <select id="selectAllForTask" resultMap="BaseResultMap">
+        select
+        a.id, a.user_id, a.category_id, a.title, a.content, a.view_num, a.comment_num, a.created_at, a.updated_at,
+        u.nickname,
+        c.name as category_name
+        from h_article as a
+        inner join h_user as u on a.user_id = u.id
+        inner join h_category as c on a.category_id=c.id
+        where a.created_at between #{startTime,jdbcType=INTEGER} and #{endTime,jdbcType=INTEGER}
+        order by a.created_at asc
+    </select>
+
     <select id="count" resultType="java.lang.Integer">
         select count(id) from h_article
         <if test="userId != 0">

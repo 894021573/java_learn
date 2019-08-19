@@ -24,6 +24,7 @@ class BaseController extends Controller
     protected $pageSize = 5;
 
     public $nav;
+    public $content;
 
     public function beforeAction($action)
     {

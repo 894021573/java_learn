@@ -86,9 +86,9 @@ public class WebLogAspect
         hWebLog.setRequest(requestParam.toString());
         hWebLog.setCreatedAt(DateUtil.getSecondTimestamp(null));
 
-        Response<Map<String, Object>> response = webLogService.insertLog(hWebLog);
-        Integer id = (Integer) response.getData().get("id");
-        setWebLogId(id);
+//        Response<Map<String, Object>> response = webLogService.insertLog(hWebLog);
+//        Integer id = (Integer) response.getData().get("id");
+//        setWebLogId(id);
 //        hWebLogMapper.insert(hWebLog);
     }
 
@@ -100,6 +100,6 @@ public class WebLogAspect
 //        logger.info("RESPONSE id : " + getWebLogId());
 
 //        System.out.println(ret.toString());
-        webLogService.updateResponse(ret.toString(), getWebLogId());
+//        webLogService.updateResponse(ret.toString(), getWebLogId());
     }
 }

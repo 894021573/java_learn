@@ -20,9 +20,20 @@
 <body>
 <header class="header-navigation" id="header">
     <nav>
-        <div class="logo"><a href="/"><?= $this->context->nickname ?>博客</a></div>
+        <div class="logo"><a href="/"><?= $this->context->nickname ?>H博客</a>
+        </div>
         <h2 id="mnavh"><span class="navicon"></span></h2>
         <ul id="starlist">
+            <li style="margin-right: 20px;">
+                <form class="form-horizontal" role="form" method="get" action="index.php?r=blog/list-article">
+                    <div class="form-group" style="width:400px;padding-top:16px">
+                        <div class="col-sm-10" style="">
+                            <input type="text" class="form-control" id="content" name="content" autocomplete="off" value="<?= $this->context->content?>">
+                        </div>
+                        <button type="submit" class="col-sm-2 btn btn-primary">搜索</button>
+                    </div>
+                </form>
+            </li>
             <li>
                 <a href="index.php?r=blog/list-article" <?= $this->context->nav == 'listArticle' ? "id='selected'" : '' ?>>首页</a>
             </li>

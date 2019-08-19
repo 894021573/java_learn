@@ -6,14 +6,13 @@ import com.ht.blog.common.help.valid.groups.CreateAction;
 import com.ht.blog.common.help.valid.groups.UpdateAction;
 import com.ht.blog.entity.HArticle;
 import com.ht.blog.entity.HCategory;
+//import com.ht.blog.repository.HArticleRepository;
 import com.ht.blog.service.ArticleService;
+import com.ht.blog.service.ESArticleService;
 import common.util.result.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -25,6 +24,9 @@ public class ArticleController
     private ArticleService articleService;
 
     @Autowired
+    private ESArticleService esArticleService;
+
+    @Autowired
     public void setArticleService(ArticleService articleService)
     {
         this.articleService = articleService;
@@ -32,6 +34,7 @@ public class ArticleController
 
     @RequestMapping(path = "/listArticle", method = RequestMethod.POST)
     public Response<Map<String, Object>> listArticle(
+            @RequestParam(defaultValue = "") String title,
             @RequestParam(defaultValue = "1") int pageNum,
             @RequestParam(defaultValue = "10") int pageSize,
             HttpSession session)
@@ -44,6 +47,7 @@ public class ArticleController
         System.out.println("yyy" + kaptcha);
 
         return articleService.listArticle(pageNum, pageSize, userId, categoryId);
+//        return esArticleService.searchArticleFromES(title, pageNum, pageSize);
     }
 
     @RequestMapping(path = "/listMyArticle", method = RequestMethod.POST)
@@ -88,13 +92,13 @@ public class ArticleController
     }
 
     @RequestMapping(path = "/addCategory", method = RequestMethod.POST)
-    public Response<Map<String, Object>> addCategory(@Validated(CreateAction.class)HCategory hCategory)
+    public Response<Map<String, Object>> addCategory(@Validated(CreateAction.class) HCategory hCategory)
     {
         return articleService.addCategory(hCategory);
     }
 
     @RequestMapping(path = "/editCategory", method = RequestMethod.POST)
-    public Response<Map<String, Object>> editCategory(@Validated(UpdateAction.class)HCategory hCategory)
+    public Response<Map<String, Object>> editCategory(@Validated(UpdateAction.class) HCategory hCategory)
     {
         return articleService.editCategory(hCategory);
     }

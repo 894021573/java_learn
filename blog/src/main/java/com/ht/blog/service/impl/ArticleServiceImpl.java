@@ -10,7 +10,6 @@ import com.ht.blog.dao.HUserMapper;
 import com.ht.blog.entity.HArticle;
 import com.ht.blog.entity.HCategory;
 import com.ht.blog.service.ArticleService;
-import com.ht.blog.service.ext.CommonService;
 import com.ht.blog.vo.listArticle.ArticleVo;
 import com.ht.blog.vo.listArticle.CategoryVo;
 import com.ht.blog.vo.listArticle.ListArticleVo;
@@ -21,7 +20,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -94,7 +92,7 @@ public class ArticleServiceImpl implements ArticleService
         hArticle.setCreatedAt(DateUtil.getSecondTimestamp(null));
         int insertNum = hArticleMapper.insert(hArticle);
 
-        if(insertNum > 0){
+        if (insertNum > 0) {
             hCategoryMapper.incNum(hArticle.getCategoryId());
         }
 
@@ -150,7 +148,7 @@ public class ArticleServiceImpl implements ArticleService
     @Override
     public Response<Map<String, Object>> addCategory(HCategory hCategory)
     {
-        if(hCategoryMapper.selectCategory(hCategory.getUserId(),hCategory.getName()) != null){
+        if (hCategoryMapper.selectCategory(hCategory.getUserId(), hCategory.getName()) != null) {
             return Response.error(CategoryCodeMsg.CATEGOTY_IS_EXISTS);
         }
 
@@ -190,8 +188,8 @@ public class ArticleServiceImpl implements ArticleService
             return Response.error(CategoryCodeMsg.CATEGOTY_NOT_EXISTS);
         }
 
-        Map<String,Object> param = new HashMap<>();
-        param.put("category",hCategory);
+        Map<String, Object> param = new HashMap<>();
+        param.put("category", hCategory);
         return Response.success(param);
     }
 }
