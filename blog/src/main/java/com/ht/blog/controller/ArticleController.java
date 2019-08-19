@@ -46,8 +46,8 @@ public class ArticleController
 
         System.out.println("yyy" + kaptcha);
 
-        return articleService.listArticle(pageNum, pageSize, userId, categoryId);
-//        return esArticleService.searchArticleFromES(title, pageNum, pageSize);
+//        return articleService.listArticle(pageNum, pageSize, userId, categoryId);
+        return esArticleService.searchArticleFromES(title, pageNum, pageSize);
     }
 
     @RequestMapping(path = "/listMyArticle", method = RequestMethod.POST)
