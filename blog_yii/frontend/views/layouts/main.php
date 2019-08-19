@@ -107,7 +107,7 @@
     <?= $content ?>
 </article>
 <footer>
-    <!--    <p>Design by <a href="http://www.yangqq.com" target="_blank">杨青个人博客</a> <a href="/">蜀ICP备11002373号-1</a></p>-->
+        <p><a href="http://www.beian.miit.gov.cn/">浙ICP备19033983号-1</a></p>
 </footer>
 <a href="#" class="cd-top">Top</a>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
