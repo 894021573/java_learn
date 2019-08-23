@@ -86,10 +86,9 @@ public class WebLogAspect
         hWebLog.setRequest(requestParam.toString());
         hWebLog.setCreatedAt(DateUtil.getSecondTimestamp(null));
 
-//        Response<Map<String, Object>> response = webLogService.insertLog(hWebLog);
-//        Integer id = (Integer) response.getData().get("id");
-//        setWebLogId(id);
-//        hWebLogMapper.insert(hWebLog);
+        Response<Map<String, Object>> response = webLogService.insertLog(hWebLog);
+        Integer id = (Integer) response.getData().get("id");
+        setWebLogId(id);
     }
 
     @AfterReturning(returning = "ret", pointcut = "webLog()")
@@ -97,9 +96,10 @@ public class WebLogAspect
     {
         // 处理完请求，返回内容
         logger.info("RESPONSE : " + ret);
-//        logger.info("RESPONSE id : " + getWebLogId());
+        logger.info("RESPONSE id : " + getWebLogId());
+        logger.error("RESPONSE id error : " + getWebLogId());
 
-//        System.out.println(ret.toString());
-//        webLogService.updateResponse(ret.toString(), getWebLogId());
+        System.out.println(ret.toString());
+        webLogService.updateResponse(ret.toString(), getWebLogId());
     }
 }

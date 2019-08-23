@@ -4,6 +4,8 @@ import com.ht.blog.common.help.valid.groups.CreateAction;
 import com.ht.blog.common.help.valid.groups.UpdateAction;
 import com.ht.blog.common.help.valid.message.HArticleMessage;
 import com.ht.blog.dao.HArticleMapper;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotEmpty;
